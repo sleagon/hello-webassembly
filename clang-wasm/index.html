@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<pre id="log"></pre>
+<html>
+    <body>
+        <h3>Open console.</h3>
+        <script src="hello.js"></script>
+        <script>
+            window.Module = window.Module || {};
+            window.Module.onRuntimeInitialized = () => {
+                alert(`10 - 5 = ${Module.asm._minus(10, 5)}`);
+            }
+        </script>
+    </body>
+
+</html>

@@ -1,0 +1,8 @@
+{
+  "scripts": {
+    "build": "asc src/index.ts -o lib/index.wasm"
+  },
+  "devDependencies": {
+    "assemblyscript": "^0.3.0"
+  }
+}

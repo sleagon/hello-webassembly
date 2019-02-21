@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<head>
+  <script type="text/javascript" src="wasm_exec.js"></script>
+</head>
+<body>
+  <script>
+    const go = new Go();
+    WebAssembly.instantiateStreaming(fetch('main.wasm'), go.importObject).then(res => {
+      go.run(res.instance);
+      window.godig = (str, count) => {
+        gdig(str, count);
+        return [window._gdig_r0_, window._gdig_r1_, window._gdig_r2_];
+      };
+    });
+  </script>
+</body>
