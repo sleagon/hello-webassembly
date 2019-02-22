@@ -11,6 +11,8 @@
         gdig(str, count);
         return [window._gdig_r0_, window._gdig_r1_, window._gdig_r2_];
       };
+      // in golang 1.11 wasm is called asyncly, may be fixed in 1.12
+      setInterval(() => console.log(window.godig('test', 4)), 1000);
     });
   </script>
 </body>
