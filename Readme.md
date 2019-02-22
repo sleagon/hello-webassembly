@@ -1,5 +1,9 @@
 # Hello WebAssembly
 
+All demos here can got from here: 134.175.9.68
+
+e.g. http://134.175.9.68/hello-webassembly/buffer-wasm/index.html
+
 This repo collects some extremely basic demo of WebAssembly.
 
 ## 1-wasm
@@ -13,6 +17,8 @@ node hello.js
 
 ## wat-wasm
 
+demo: http://134.175.9.68/hello-webassembly/wat-wasm/index.html
+
 > wabt is required: https://github.com/WebAssembly/wabt
 
 .wat: text format WebAssembly like S-syntax
@@ -21,6 +27,9 @@ load.js: loader for webassembly
 
 
 ## clang-wasm
+
+demo: http://134.175.9.68/hello-webassembly/clang-wasm/index.html
+
 
 > emcc is required: https://emscripten.org/docs/tools_reference/emcc.html#emcc-o-target
 
@@ -39,6 +48,8 @@ try to run ```console.log(window.Module);``` after index.html is loaded。
 
 ## golang-wasm
 
+demo: http://134.175.9.68/hello-webassembly/golang-wasm/index.html
+
 > go 1.11 is required
 
 main.go source code of golang
@@ -51,6 +62,9 @@ make build
 ```
 
 ## buffer-wasm
+
+demo: http://134.175.9.68/hello-webassembly/buffer-wasm/index.html
+
 
 share data between webassembly and js
 
@@ -76,6 +90,9 @@ setInterval(() => {
 
 ## ts-wasm
 
+demo: http://134.175.9.68/hello-webassembly/ts-wasm/index.html
+
+
 > asc version 0.3 is used here.
 
 ```bash
@@ -84,6 +101,9 @@ npm run build
 ```
 
 ## webpack-wasm
+
+demo: http://134.175.9.68/hello-webassembly/webpack-wasm/lib/index.html
+
 
 webpack + react + wasm
 
