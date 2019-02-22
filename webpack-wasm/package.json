@@ -1,0 +1,51 @@
+{
+  "name": "test",
+  "version": "1.0.0",
+  "description": "trending of tao factories",
+  "author": {
+    "name": "sion.syy",
+    "email": "sion.syy@alibaba-inc.com"
+  },
+  "scripts": {
+    "babel": "babel src/index.jsx",
+    "build": "webpack",
+    "lint": "kyle --types js --fix",
+    "precommit": "npm run lint",
+    "gen-data": "node .local/gen.js"
+  },
+  "dependencies": {
+    "@babel/runtime": "^7.0.0",
+    "classnames": "^2.2.3",
+    "flux": "^3.1.3",
+    "node-sass": "^4.9.3",
+    "prop-types": "^15.6.2",
+    "react": "^15.x",
+    "react-addons-transition-group": "^15.x",
+    "react-base16-styling": "^0.6.0",
+    "react-dom": "^15.x"
+  },
+  "devDependencies": {
+    "@babel/cli": "^7.0.0",
+    "@babel/core": "^7.0.0",
+    "@babel/plugin-proposal-class-properties": "^7.0.0",
+    "@babel/plugin-syntax-dynamic-import": "^7.2.0",
+    "@babel/plugin-transform-runtime": "^7.0.0",
+    "@babel/polyfill": "^7.0.0",
+    "@babel/preset-env": "^7.0.0",
+    "@babel/preset-react": "^7.0.0",
+    "babel-loader": "^8.0.2",
+    "babel-plugin-react-html-attrs": "^2.1.0",
+    "babel-plugin-transform-function-bind": "^6.22.0",
+    "css-loader": "^1.0.0",
+    "expect.js": "0.x",
+    "mocha": "3.x",
+    "prop-types": "^15.6.2",
+    "raw-loader": "^0.5.1",
+    "react-json-view": "^1.19.1",
+    "sass-loader": "^7.1.0",
+    "style-loader": "^0.23.0",
+    "wasm-loader": "^1.3.0",
+    "webpack": "^3.1.0",
+    "webpack-cli": "^3.1.0"
+  }
+}

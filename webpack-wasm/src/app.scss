@@ -1,0 +1,32 @@
+.page-header {
+  font-family: 'Syncopate', sans-serif;
+  text-align: center;
+  color: #999999;
+  margin-top: 2em;
+}
+
+.uuid-text {
+  margin-top: 20px;
+  font-size: 18px;
+  color: chocolate;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.btn {
+  border: 2px solid #448aff;
+  border-radius: 4px;
+  color: #448aff;
+  cursor: pointer;
+  font-size: 16px;
+  height: auto;
+  line-height: 16px;
+  left: -50%;
+  margin: auto;
+  width: 200px;
+  height: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
