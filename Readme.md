@@ -93,7 +93,7 @@ setInterval(() => {
 demo: http://134.175.9.68/hello-webassembly/ts-wasm/index.html
 
 
-> asc version 0.3 is used here.
+> asc version 0.6 is used here.
 
 ```bash
 # generate wasm
