@@ -41,7 +41,7 @@
         ];
         const payload = new Float32Array(data.length);
         data.forEach((v, idx) => (payload[idx] = v));
-        window.Module._malloc(payload.length * payload.BYTES_PER_ELEMENT);
+        const buffer = window.Module._malloc(payload.length * payload.BYTES_PER_ELEMENT);
         window.Module.HEAPF32.set(payload, buffer >> 2);
         const result = window.Module._cal(payload, payload.length);
         console.log(data.map(d => `${d} * ${d}`).join(' + '), '=', result);
