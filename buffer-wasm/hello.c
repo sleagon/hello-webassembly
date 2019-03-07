@@ -23,3 +23,13 @@ char* uuid() {
   }
   return randomString;
 }
+
+float cal (float *buffer, int bufSize) {
+    float total = 0;
+
+    for (int i=0; i<bufSize; i++) {
+        total+= buffer[i] * buffer[i];
+    }
+
+    return total;
+}
