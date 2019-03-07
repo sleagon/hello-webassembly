@@ -1,39 +1,52 @@
 <!DOCTYPE html>
 <pre id="log"></pre>
 <html>
+  <body>
+    <h3>Open console.</h3>
+    <p id="uuid">loading wasm...</p>
+    <script src="hello.js"></script>
+    <script>
+      window.Module = window.Module || {};
+      window.Module.onRuntimeInitialized = () => {
+        window.uuidIsReady = true;
+      };
+      const getUUID = () => {
+        const offset = window.Module._uuid();
+        let uuid = '';
+        for (let k = 0; k < 32; k++) {
+          uuid += String.fromCharCode(Module.HEAP8[offset + k]);
+        }
+        return { p: offset, uuid };
+      };
+      setInterval(() => {
+        if (!window.uuidIsReady) {
+          return;
+        }
+        const { p, uuid } = getUUID();
+        document.getElementById('uuid').textContent = `uuid = ${uuid}`;
+        window.Module._free(p);
+        cal();
+      }, 1000);
 
-<body>
-  <h3>Open console.</h3>
-  <p id="uuid">loading wasm...</p>
-  <script src="hello.js"></script>
-  <script>
-    window.Module = window.Module || {};
-    window.Module.onRuntimeInitialized = () => {
-      window.uuidIsReady = true;
-    };
-    const getUUID = () => {
-      const offset = window.Module._uuid();
-      let uuid = '';
-      for (let k = 0; k < 32; k++) {
-        uuid += String.fromCharCode(Module.HEAP8[offset + k]);
+      function cal() {
+        if (!window.uuidIsReady) {
+          return;
+        }
+        const data = [
+          (Math.random() * 10) | 0,
+          (Math.random() * 10) | 0,
+          (Math.random() * 10) | 0,
+          (Math.random() * 10) | 0,
+          (Math.random() * 10) | 0,
+        ];
+        const payload = new Float32Array(data.length);
+        data.forEach((v, idx) => (payload[idx] = v));
+        window.Module._malloc(payload.length * payload.BYTES_PER_ELEMENT);
+        window.Module.HEAPF32.set(payload, buffer >> 2);
+        const result = window.Module._cal(payload, payload.length);
+        console.log(data.map(d => `${d} * ${d}`).join(' + '), '=', result);
+        window.Module._free(payload);
       }
-      return { p: offset, uuid };
-    };
-    setInterval(() => {
-      const { p, uuid } = getUUID();
-      document.getElementById('uuid').textContent = `uuid = ${uuid}`;
-      window.Module._free(p);
-    }, 1000);
-
-    const data = [1,2,3,4,5];
-    const payload = new Float32Array(data.length);
-    data.forEach((v, idx) => payload[idx] = v);
-    window.Module._malloc(payload.length * payload.BYTES_PER_ELEMENT)
-    window.Module.HEAPF32.set(payload, buffer >> 2)
-    const result = window.Module._cal(payload, payload.length);
-    console.log(data.map(d => `${d} * ${d}`).join('+'), '=', result);
-    window.Module._free(payload);
-  </script>
-</body>
-
+    </script>
+  </body>
 </html>
