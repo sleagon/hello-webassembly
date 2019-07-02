@@ -1,6 +1,6 @@
 # Hello WebAssembly
 
-All demos here can be found from here: 134.175.9.68
+All demos here can be found here: 134.175.9.68
 
 e.g. http://134.175.9.68/hello-webassembly/buffer-wasm/index.html
 
